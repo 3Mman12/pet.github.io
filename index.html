@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciclaje de PET - Un Mundo más Limpio</title>
+    
+    <!-- Link para íconos (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F0FFF0;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #2E8B57; /* Verde mar/bosque */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Contenedor principal */
+        .container {
+            width: 85%;
+            margin: 20px auto;
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex; /* Usamos Flexbox para la disposición principal */
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        /* Diseño de secciones */
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 5px solid #4682B4;
+            background-color: #F8F8FF;
+            flex-basis: 48%; /* Ocupa casi la mitad del contenedor para dos columnas */
+            box-sizing: border-box; /* Asegura que el padding no desborde el ancho */
+        }
+
+        .full-width-section {
+            flex-basis: 100%; /* Ocupa todo el ancho para el video y CTA */
+            padding: 20px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        .section h2 {
+            color: #2E8B57;
+            margin-top: 0;
+            border-bottom: 2px solid #90EE90;
+            padding-bottom: 5px;
+        }
+
+        /* Estilos para imágenes */
+        .img-float {
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+            float: right; /* Flotar a la derecha del texto */
+            margin: 0 0 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- NUEVOS ESTILOS PARA LA SECCIÓN DE DOCUMENTOS --- */
+
+        .two-column-layout {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px; /* Espacio entre columnas */
+        }
+
+        .content-box {
+            flex-basis: 48%; /* Cada columna ocupa ~48% */
+            min-width: 300px; /* Ancho mínimo para pantallas pequeñas */
+            flex-grow: 1;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background-color: #fdfdfd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            /* Altura fija para alineación */
+            min-height: 250px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .content-box h3 {
+            font-size: 1.3em;
+            color: #fff;
+            background-color: #4682B4; /* Azul */
+            padding: 15px;
+            margin: 0;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .content-box h3 .fa-solid {
+            margin-right: 10px;
+        }
+        
+        .content-body {
+            padding: 20px;
+            text-align: center; /* Centrar el contenido del cuerpo */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilo para el botón de descarga/vista previa */
+        .preview-button {
+            display: inline-block;
+            background-color: #2E8B57; /* Verde */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+        }
+
+        .preview-button:hover {
+            background-color: #3CB371; /* Verde más claro */
+            transform: translateY(-2px);
+        }
+
+        .preview-button .fa-solid {
+            margin-right: 8px;
+        }
+
+        /* Botón de llamado a la acción principal */
+        .cta-button {
+            display: inline-block;
+            background-color: #4682B4;
+            color: white;
+            padding: 12px 25px;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #5F9EA0;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background-color: #E6E6FA; /* Fondo suave para el pie de página */
+            padding: 20px 0;
+            margin-top: 20px;
+            border-top: 3px solid #90EE90;
+            /* Usamos flexbox para centrar y alinear los elementos del footer */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        footer p {
+            margin: 5px 0;
+            color: #444;
+        }
+        
+        footer .team-name {
+            color: #2E8B57;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-bottom: 2px solid #90EE90;
+            padding-bottom: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Contenedor para el QR y los miembros */
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Estilos para el contenedor del QR */
+        .qr-section {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .qr-section img {
+            width: 100px; /* Tamaño del QR */
+            height: 100px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        .team-members {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Diseño responsive para el pie de página */
+        @media (min-width: 600px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: center;
+                gap: 50px; /* Espacio entre el QR y la lista de miembros */
+            }
+            .team-members {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PET: ¡El Ciclo de la Segunda Vida!</h1>
+        <p>Ayúdanos a transformar el mundo botella por botella.</p>
+    </header>
+    
+    <div class="container">
+        
+        <div class="section">
+            <h2>¿Qué es el PET y por qué reciclar?</h2>
+            
+            <img src="PET1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/150x150/90EE90/2E8B57?text=PET1.jpg'" alt="Botellas de plástico PET" class="img-float">
+            
+            <p>El **Tereftalato de polietileno (PET)** es el plástico más usado en envases de bebidas. Es 100% reciclable y su reutilización es vital para **reducir la contaminación** en nuestros océanos y vertederos.</p>
+            <p>Reciclar una tonelada de PET ahorra una gran cantidad de energía y evita la emisión de gases de efecto invernadero.</p>
+        </div>
+
+        <div class="section">
+            <h2>Pasos Clave para Reciclar PET</h2>
+            <ul>
+                <li><strong>Limpia:</strong> Lava y seca ligeramente la botella.</li>
+                <li><strong>Separa:</strong> Retira tapas y etiquetas (si es posible).</li>
+                <li><strong>Reduce:</strong> Aplasta la botella para ahorrar espacio de transporte.</li>
+                <li><strong>Deposita:</strong> Llévala al contenedor adecuado (generalmente el amarillo).</li>
+            </ul>
+
+            <img src="PET2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/4682B4/FFFFFF?text=PET2.jpg'" alt="Símbolo de reciclaje" style="max-width: 100px; display: block; margin: 15px auto;">
+        </div>
+
+        <div class="full-width-section" style="text-align: center;">
+    <h2>Mira Cómo Funciona el Proceso</h2>
+    
+    <div style="max-width: 700px; margin: 15px auto;">
+        <iframe 
+            style="width: 100%; height: 400px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
+            src="https://www.youtube.com/watch?v=eo7AeC0q1GU"
+            title="Video explicativo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+        
+        
+        <div class="full-width-section">
+            <div class="two-column-layout">
+            
+                <!-- COLUMNA IZQUIERDA - GRÁFICAS (CON ENLACE REAL) -->
+                <div class="content-box">
+                    <h3><i class="fa-solid fa-chart-bar"></i> Gráficas de Consumo (PAEC)</h3>
+                    <div class="content-body">
+                        <p>Visualiza los resultados del análisis de consumo de PET por hogar para comprender el impacto de los patrones de desecho.</p>
+                        
+                        <a 
+                            href="Graficas.xlsx - Pregunta 4. Cantidad de envase.csv" 
+                            target="_blank" 
+                            class="preview-button"
+                            title="Haz clic para ver el archivo de gráficas"
+                        >
+                            <i class="fa-solid fa-download"></i> Descargar Datos
+                        </a>
+                        <p style="margin-top: 10px; font-size: 0.8em; color: #888;">*Se enlaza a uno de los archivos CSV subidos.</p>
+                    </div>
+                </div>
+                
+                <!-- COLUMNA DERECHA - REGULACIONES (CON ENLACE REAL) -->
+                <div class="content-box">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> Regulaciones y Marco Jurídico</h3>
+                    <div class="content-body">
+                        <p>Consulta el documento oficial con el Avance I PAEC que detalla las normativas aplicables a la gestión de residuos sólidos de PET en Toluca.</p>
+
+                        <a 
+                            href="Normatividad.pdf" 
+                            target="_blank" 
+                            class="preview-button"
+                            style="background-color: #dc3545;" /* Rojo para PDF */
+                            title="Haz clic para ver el archivo PDF de regulaciones"
+                        >
+                            <i class="fa-solid fa-file-pdf"></i> Ver Documento PDF
+                        </a>
+                        <p style="margin-top: 10px; font-size: 0.8em; color: #888;">*Enlace directo al archivo 'Normatividad.pdf' subido.</p>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        
+        <div class="full-width-section" style="text-align: center;">
+            <h2>¡Es Tu Turno de Actuar!</h2>
+            <p>Encuentra el punto de acopio más cercano para tus botellas de PET y sé parte del cambio.</p>
+            
+            <a 
+                href="https://www.google.com/maps/search/centro+de+reciclaje+PET" 
+                target="_blank" 
+                class="cta-button"
+            >
+                Abrir Mapa de Centros de Reciclaje
+            </a>
+
+            <p style="margin-top: 15px; font-size: 0.9em; color: #666;">(Se abrirá Google Maps en una nueva pestaña)</p>
+        </div>
+
+    </div> <!-- Cierre del contenedor principal -->
+
+    <!-- ============================================ -->
+    <!--  PIE DE PÁGINA ACTUALIZADO CON QR          -->
+    <!-- ============================================ -->
+    <footer>
+        <div class="footer-content">
+            
+            <!-- Sección del QR -->
+            <div class="qr-section">
+                <p><strong>Síguenos en nuestras redes sociales para aprender más de este tema.</strong></p>
+                <img 
+                    src="QR.jpg" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/100x100/4682B4/FFFFFF?text=QR+Code';" 
+                    alt="Código QR de Redes Sociales"
+                >
+            </div>
+
+            <!-- Lista de miembros del equipo -->
+            <div class="team-members">
+                <p class="team-name">EQUIPO 2</p>
+                <p>Alanis Flores Alison Mairin</p>
+                <p>Gonzales Lopez Valeria</p>
+                <p>Bibiano Acosta José Emmanuel</p>
+                <p>Sanchez Mora Diego Alberto</p>
+                <p>Aldama Ramirez Ami</p>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+
+</html>
